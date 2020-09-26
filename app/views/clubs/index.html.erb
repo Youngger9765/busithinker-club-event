@@ -1,0 +1,16 @@
+<h1>Clubs</h1>
+
+<ul>
+<% @clubs.each do |club| %>
+    <li>
+        <%= club.name %>
+        <%= link_to " (XML)", club_path(club, :format => :xml) %>
+        <%= link_to " (JSON)", club_path(club, :format => :json) %>
+        <%= link_to 'Show', club_path(club) %>
+        <%= link_to 'Edit', edit_club_path(club) %>
+        <%= button_to 'Delete', club_path(club), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+    </li>
+<% end %>
+</ul>
+
+<%= link_to 'New Club', new_club_path %>

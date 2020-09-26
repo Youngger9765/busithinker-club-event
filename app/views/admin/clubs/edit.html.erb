@@ -1,0 +1,7 @@
+<h3>編輯社團</h3>
+
+<%= form_for @admin_club, :url => admin_club_path(@admin_club) do |f| %>
+
+  <%= render :partial => 'form', :locals => { :f => f} %>
+
+<% end %>

@@ -1,0 +1,320 @@
+// Place all the styles related to the demo controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  background: #F6F8F9;
+}
+//banner & logo
+#event-banner{
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center center;
+}
+
+#event-logo{
+  position: static;
+  display: inline-flex;
+  border: aqua;
+  border-style: double;
+  top: -300px;
+  float: left;
+  z-index: 3;
+}
+
+#event-logo img{
+  width: 100%;
+  height: 100%;
+}
+
+.event-activity-logo-photo{
+  width: 262px;
+  height: 196px;
+  background-size: cover;
+  background-position: center center;
+  
+}
+
+.hover_item{
+    opacity: 0;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(83,184,167,.8);
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff;
+    padding: 15px;
+    border: 0;
+    margin: 0;
+  }
+
+
+#activity-banner{
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center center;
+}
+
+#activity-logo{
+  width: 300px;
+  position: static;
+  padding: 3px;
+  display: inline-flex;
+  border: red;
+  border-width: 5px;
+  border-style: double;
+  top: -300px;
+  float: left;
+  z-index: 3;
+}
+
+#activity-logo img{
+  width: 300px;
+  height: 300px;
+}
+
+#editor-activity-banner img{
+  width: 100%;
+  height: 500px;
+}
+
+#google_map_icon img {
+  width: 300px;
+}
+
+#milestone_logo{
+  border: red;
+  border-width: 5px;
+  border-style: double;
+  display: block;
+}
+
+.section{
+  padding: 50px;
+  background: white;
+}
+
+#introduceProduct .section{
+  padding: 5px;
+}
+
+.editor{
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.section .editor p{
+  margin: 0;
+  img{
+    width:100%;
+    margin: 0; 
+  }
+}
+
+#information_picture img{
+  width: 100%;
+  height: auto;
+}
+
+#editor-information-picture img{
+  width: 100%;
+}
+
+.merchant-banner img{
+  width: 100%;
+}
+
+#editor-merchant-banner img{
+  width: 100%;
+}
+
+#editor-introduce{
+  padding: 50px;
+  img{
+    margin: 0; 
+  }
+}
+
+
+#editor-introduce p{
+  margin: 0;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.event-activity-logo {
+  width: 280px;
+  background-color: honeydew;
+  height:250px;
+  margin: 5px;
+  img{
+    width: 100%;
+    height: 100px;
+  }
+  a{
+    text-decoration:none;
+  }
+}
+
+.milestone-card {
+  background-color: honeydew;
+  margin: 5px;
+}
+
+.milestone-card .btn-danger{
+  position: relative;
+  top: 0px;
+}
+
+.lottery-logo img{
+  width: 100%;
+  height:140px;
+}
+
+#merchant-show img{
+  width:100%!important;
+}
+
+#editor-merchant-banner img{
+  width:100%;
+}
+
+#editor-merchant-logo img{
+  width:100%;
+}
+
+.merchant-description{
+  background-color: white;
+  border-color: white;
+  border-width: 5px;
+  border-style: solid;
+  margin: 5px;
+}
+
+//switch button
+form
+{
+  margin:auto;
+}
+
+div
+{
+  margin: auto;
+}
+
+input.switch:empty
+{
+  margin-left: -999px;
+}
+
+input.switch:empty ~ label
+{
+  position: relative;
+  float: left;
+  line-height: 1.6em;
+  text-indent: 4em;
+  margin: 0.2em 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.switch:empty ~ label:before, 
+input.switch:empty ~ label:after
+{
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '\2718';
+  width: 3.6em;
+  text-indent: 2.4em;
+  color: #900;
+  background-color: #c33;
+  border-radius: 0.3em;
+  box-shadow: inset 0 0.2em 0 rgba(0,0,0,0.3);
+}
+
+input.switch:empty ~ label:after
+{
+  content: ' ';
+  width: 1.4em;
+  top: 0.1em;
+  bottom: 0.1em;
+  text-align: center;
+  text-indent: 0;
+  margin-left: 0.1em;
+  color: #f88;
+  background-color: #fff;
+  border-radius: 0.15em;
+  box-shadow: inset 0 -0.2em 0 rgba(0,0,0,0.2);
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+}
+
+/* toggle on */
+input.switch:checked ~ label:before
+{
+  content: '\2714';
+  text-indent: 0.5em;
+  color: #6f6;
+  background-color: #393;
+}
+
+input.switch:checked ~ label:after
+{
+  margin-left: 2.1em;
+  color: #6c6;
+}
+
+/* focus styles */
+input.switch:focus ~ label
+{
+  color: #000;
+}
+
+input.switch:focus ~ label:before
+{
+  box-shadow: 0 0 0 3px #999;
+}
+
+.lottery_info_card-0{
+  color: gainsboro;
+}
+
+.artist-img-frame {
+  width: 200px;
+  height: 200px;
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px; 
+  }
+}
+
+.artist-no-img-frame {
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  background-color: gray;
+}
+
+.artist-img-frame-table{
+  img{
+    max-width: 100px;
+    max-height: 100px; 
+  }
+}

@@ -1,16 +1,18 @@
+<h1>
+    <%= @club.name%>
+</h1>
+
 <ul>
 <% @events.each do |event| %>
     <li>
         <%= event.name %>
-        <%= link_to " (XML)", event_path(event, :format => :xml) %>
-        <%= link_to " (JSON)", event_path(event, :format => :json) %>
-        <%= link_to 'Show', event_path(event) %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= button_to 'Delete', event_path(event), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+        <%= link_to " (XML)", club_event_path(@club,event, :format => :xml) %>
+        <%= link_to " (JSON)", club_event_path(@club,event, :format => :json) %>
+        <%= link_to 'Show', club_event_path(@club,event) %>
+        <%= link_to 'Edit', edit_club_event_path(@club,event) %>
+        <%= button_to 'Delete', club_event_path(@club,event), :method => :delete, :data => { :confirm => "Are you sure?" } %>
     </li>
 <% end %>
 </ul>
-
-<%= link_to 'New Event', new_event_path %>
 
 <%= paginate @events %>

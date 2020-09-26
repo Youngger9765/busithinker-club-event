@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
     before_action :set_event, :only => [ :show, :edit, :update, :destroy]
+    before_action :find_club
     # validates_presence_of :name
+    # belongs_to :clubs :optional => true
 
     def index
         @events = Event.page(params[:page]).per(5)
@@ -21,12 +23,10 @@ class EventsController < ApplicationController
         flash[:notice] = "event was successfully created"
         @event = Event.new(event_params)
         if @event.save
-            redirect_to events_url
+            redirect_to club_event_url(@club,@event)
         else
             render :action => :new
         end
-
-        
     end
 
     def show
@@ -71,5 +71,9 @@ class EventsController < ApplicationController
 
     def set_event
         @event = Event.find(params[:id])
+    end
+
+    def find_club
+        @club = Club.find(params[:club_id])
     end
 end

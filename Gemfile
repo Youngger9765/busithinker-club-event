@@ -11,6 +11,10 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'json', '>= 1.8'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -31,6 +35,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rails_12factor', group: :production
 
 gem "kaminari"
+
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
