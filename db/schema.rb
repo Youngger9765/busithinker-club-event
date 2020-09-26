@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_064211) do
+ActiveRecord::Schema.define(version: 2020_09_26_192537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2020_09_26_064211) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "banner_file_name"
+    t.string "banner_content_type"
+    t.integer "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "event_clubships", force: :cascade do |t|
@@ -38,6 +46,13 @@ ActiveRecord::Schema.define(version: 2020_09_26_064211) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.integer "club_id"
+    t.string "banner_file_name"
+    t.string "banner_content_type"
+    t.integer "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "customers_target"
     t.index ["club_id"], name: "index_events_on_club_id"
   end
 

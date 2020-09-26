@@ -1,0 +1,90 @@
+<div class="form-group">
+  <h2><%= f.label :name ,"活動名稱"%></h2>
+  <%= f.text_field :name, :class => "form-control" %>
+</div>
+
+<h1>社課資訊</h1>
+<hr>
+<div class="form-group">
+  <h2><%= f.label :description ,"活動敘述"%></h2>
+  <%= f.text_area :description, :class => "form-control" %>
+</div>
+
+<h3>活動上架狀態</h3> 
+<div>
+  <input type="radio" id="radio1" name="admin_event[is_public]" class="switch" value="0" 
+    <%if @admin_event.is_public != true %>
+      checked="checked" 
+    <%else%>
+    <%end%>
+  />
+  <label for="radio1">隱藏</label>
+</div>
+<br>
+<div>
+  <input type="radio" id="radio2" name="admin_event[is_public]" class="switch" value="1" 
+    <%if @admin_event.is_public == true %>
+      checked="checked" 
+    <%else%>
+    <%end%>
+  />
+  <label for="radio2">公開上架</label>
+</div>
+<br>
+
+<h1>活動頁資訊</h1>
+<hr>
+<div class="form-group col-md-12" id="editor-activity-banner">
+  <h2><%=f.label :banner, "活動banner"%></h2>
+  <% if @admin_event.banner.exists? %>
+    <%= image_tag(@admin_event.banner.url(:original))%>
+  <%else%>
+    <div style="color:red;">
+      <%= "尚未有圖片"%>
+    </div>  
+  <% end %>
+
+  <%=f.file_field :banner%>
+  <% if @admin_event.banner.exists? %>
+    <%= check_box_tag "destroy_banner", "1" %> 刪除檔案
+  <% end %>
+</div>
+<br>
+
+<br>
+
+
+
+<div class="form-group">
+  <h2><%= f.label :customers_target ,"目標人數"%></h2>
+  <%= f.number_field :customers_target, :class => "form-control" %>
+</div>
+
+<hr>
+
+<h2>活動資訊</h2>
+
+<div class="clearfix"></div>
+
+<div class="form-group">
+  <h3><%= f.label :start_time ,"開始時間"%></h3>
+  <%= f.datetime_select :start_time%>
+</div>
+
+<div class="form-group">
+  <h3><%= f.label :end_time ,"結束時間"%></h3>
+  <%= f.datetime_select :end_time%>
+</div>
+
+<%= f.submit "更新",:class => "btn btn-primary" %>
+
+<hr>
+
+<script>
+  $(function() {
+    $('.froala-editor').froalaEditor({
+      imageUploadURL: '/attachment/upload.json',
+      imageUploadMethod: 'POST'
+    });
+  });
+</script>

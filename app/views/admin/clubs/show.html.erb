@@ -1,4 +1,73 @@
-<p id="notice"><%= notice %></p>
+<h3>
+<%= link_to "社團列表", admin_clubs_path%> 
+> 
+<%= @admin_club.name%>
+</h3> 
 
-<%= link_to 'Edit', edit_admin_club_path(@admin_club) %> |
-<%= link_to 'Back', admin_clubs_path %>
+<h2>
+  社團名稱：<%= @admin_club.name%> <%= link_to "編輯", edit_admin_club_path(@admin_club), :class => "btn btn-success" %>
+</h2>
+<div id="event-image">
+  <div id="event-banner" 
+    <% if @admin_club.banner.exists? %>
+      style="background-image:url(<%= @admin_club.banner.url(:original)%>)"
+
+    <%else%>
+      <h1 class = "text-center">
+        <%= link_to "請新增banner圖片（底圖）", edit_admin_club_path(@admin_club), :class => "btn btn-success btn-lg " %>
+      </h1>
+    <%end%>
+  </div>
+
+  <div id="event-logo">
+    <% if @admin_club.logo.exists? %>
+      <%= image_tag(@admin_club.logo.url(:medium))%>
+
+    <%else%>
+      <h1 class = "text-center">
+        <%= link_to "請新增 logo(小圖)", edit_admin_club_path(@admin_club), :class => "btn btn-success btn-lg " %>
+      </h1>
+    <%end%>
+  </div>
+</div>  
+
+<hr>
+
+
+<h1 class = "text-center">
+    社課列表 <%= link_to "+建立社課", new_admin_club_event_path(@admin_club), :class => "btn btn-success" %>
+</h1>
+<table class="table">
+  <tr>
+    <td>社課名稱</td>
+    <td>頁面呈現</td>
+    <td>編輯</td>
+    <td>刪除</td>
+  </tr>
+  <%@admin_club.events.each do |event|%>
+    <tr>
+      <td><%= link_to event.name, admin_club_event_path(@admin_club, event) %></td>
+      <td><%= link_to "Show", admin_club_event_path(@admin_club, event), :class => "btn btn-primary"%></td>
+      <td><%= link_to "Edit", edit_admin_club_event_path(@admin_club, event), :class => "btn btn-success" %></td>
+      <td><%= link_to "Delete", admin_club_event_path(@admin_club, event), :method => :delete, :class => "btn btn-danger", :data => {:confirm => "are_you_sure" } %></td>
+    </tr>
+  <%end%>
+
+</table>
+
+
+
+<script>
+  $(document).ready(function(){
+    console.log("hwllo");
+    $(".event-activity-logo-photo").mouseover(function(){
+      console.log("haha");
+      $(this).find('.hover_item').css("opacity","1");
+      // $(".hover_item").css("opacity","1");
+    });
+    $(".event-activity-logo-photo").mouseout(function(){
+      console.log("kerek");
+      $(".hover_item").css("opacity","0");
+    });
+  });
+</script>

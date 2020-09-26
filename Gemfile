@@ -36,6 +36,8 @@ gem 'rails_12factor', group: :production
 
 gem "kaminari"
 
+gem "paperclip", "~> 5.3"
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do

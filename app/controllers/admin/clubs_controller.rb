@@ -40,6 +40,16 @@ class Admin::ClubsController < ApplicationController
   # PATCH/PUT /admin/clubs/1
   # PATCH/PUT /admin/clubs/1.json
   def update
+    
+    if params[:destroy_logo] == "1"
+      @admin_club.logo = nil
+    end
+
+    if params[:destroy_banner] == "1"
+      @admin_club.banner = nil
+    end
+
+
     respond_to do |format|
       if @admin_club.update(admin_club_params)
         format.html { redirect_to @admin_club, notice: 'Club was successfully updated.' }
@@ -69,6 +79,6 @@ class Admin::ClubsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_club_params
-      params.fetch(:admin_club, {})
+      params.fetch(:admin_club, {}).permit(:name, :logo, :banner)
     end
 end

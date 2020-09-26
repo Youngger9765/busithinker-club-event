@@ -1,0 +1,7 @@
+<h1>編輯活動: <%= @admin_event.name%></h1>
+
+<%= form_for @admin_event, :url => admin_club_event_path(@admin_club, @admin_event) do |f| %>
+
+  <%= render :partial => 'form', :locals => { :f => f} %>
+
+<% end %>
