@@ -33,14 +33,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'rails_12factor', group: :production
-
 gem "kaminari"
-
 gem "paperclip", "~> 5.3"
-
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
 gem 'devise'
+
 
 
 group :development, :test do
