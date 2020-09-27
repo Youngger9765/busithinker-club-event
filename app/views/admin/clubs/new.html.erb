@@ -1,5 +1,7 @@
-<h1>New Admin Club</h1>
+<h3>建立新社團</h3>
 
-<%= render 'form', admin_club: @admin_club %>
+<%= form_for @admin_club, :url => admin_clubs_path do |f| %>
 
-<%= link_to 'Back', admin_clubs_path %>
+  <%= render :partial => 'form', :locals => { :f => f} %>
+
+<% end %>

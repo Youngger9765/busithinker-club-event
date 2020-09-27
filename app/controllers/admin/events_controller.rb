@@ -2,7 +2,7 @@ class Admin::EventsController < ApplicationController
   before_action :authenticate_user! 
   before_action :check_admin
   before_action :set_admin_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_admin_club, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_club, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /admin/events
   # GET /admin/events.json
@@ -95,7 +95,7 @@ class Admin::EventsController < ApplicationController
     end
 
     def check_admin
-      unless current_user.admin?
+      unless current_user.is_admin?
           raise ActiveRecord::RecordNotFound
       end
     end
