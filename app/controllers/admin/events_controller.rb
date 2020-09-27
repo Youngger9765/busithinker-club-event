@@ -1,4 +1,6 @@
 class Admin::EventsController < ApplicationController
+  before_action :authenticate_user! 
+  before_action :check_admin
   before_action :set_admin_event, only: [:show, :edit, :update, :destroy]
   before_action :set_admin_club, only: [:show, :edit, :update, :destroy]
 
@@ -90,5 +92,11 @@ class Admin::EventsController < ApplicationController
         :name, :banner, :description, :is_public, :status,
         :start_time, :end_time, :customers_target
       )
+    end
+
+    def check_admin
+      unless current_user.admin?
+          raise ActiveRecord::RecordNotFound
+      end
     end
 end

@@ -1,4 +1,6 @@
 class Admin::ClubsController < ApplicationController
+  before_action :authenticate_user! 
+  before_action :check_admin
   before_action :set_admin_club, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/clubs
@@ -80,5 +82,11 @@ class Admin::ClubsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def admin_club_params
       params.fetch(:admin_club, {}).permit(:name, :logo, :banner)
+    end
+
+    def check_admin
+      unless current_user.is_admin?
+          redirect_to root_path
+      end
     end
 end
